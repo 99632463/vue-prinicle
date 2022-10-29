@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="root">
+    <input type="text" v-model='name'>
+    <input type="text" v-model='obj.age'>
+    <p v-html='html'></p>
+    <p v-text='text'></p>
+    <p v-on:click='myFn'>{{obj.age}} --- {{name}}</p>
+    <p>{{getName}}</p>
+  </div>
+
+  <script src="myVue.js"></script>
+  <script>
+    const vue = new MyVue({
+      el: '#root',
+      data: {
+        name: 'wangkai',
+        obj: {
+          age: 100
+        },
+        html: '<div>hello html</div>',
+        text: '<div>hello html</div>',
+        temp: 'template'
+      },
+      methods: {
+        myFn() {
+          console.log(this.name);
+        }
+      },
+      computed: {
+        getName() {
+          console.log('this: ', this.name);
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
